@@ -1,6 +1,7 @@
 const pwdFunc = require("./pwd");
 const lsFunc = require("./ls");
 const catFunc = require("./cat");
+const curlFunc = require("./curl");
 
 process.stdout.write("prompt >");
 
@@ -19,6 +20,11 @@ process.stdin.on("data", function (data) {
   if (cmd.slice(0, 4) === "cat ") {
     const file = cmd.split(" ")[1];
     catFunc(file);
+  }
+
+  if (cmd.slice(0, 5) === "curl ") {
+    const curl = cmd.split(" ")[1];
+    curlFunc(curl);
   }
 });
 
