@@ -1,6 +1,7 @@
 const pwdFunc = require("./pwd");
+const lsFunc = require("./ls");
+const catFunc = require("./cat");
 
-console.log("PWD FUNC", pwdFunc);
 process.stdout.write("prompt >");
 
 process.stdin.on("data", function (data) {
@@ -8,7 +9,16 @@ process.stdin.on("data", function (data) {
 
   if (cmd === "pwd") {
     // process.stdout.write(pwdFunc()); // this is like console.log
-    console.log(pwdFunc);
+    pwdFunc();
+  }
+
+  if (cmd === "ls") {
+    lsFunc();
+  }
+
+  if (cmd.slice(0, 4) === "cat ") {
+    const file = cmd.split(" ")[1];
+    catFunc(file);
   }
 });
 

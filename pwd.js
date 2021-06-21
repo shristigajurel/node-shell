@@ -1,4 +1,4 @@
-function pwd() {
+module.exports = function () {
   process.stdout.write(process.cwd()); // this is like console.log
 
   //   if (cmd === "pwd") {
@@ -6,5 +6,4 @@ function pwd() {
   //   }
   //   process.stdout.write("You typed:" + cmd);
   process.stdout.write("\nprompt >");
-}
-module.exports = pwd;
+};
